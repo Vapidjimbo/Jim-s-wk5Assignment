@@ -17,6 +17,123 @@ header {
     border-radius: 4px;
 }
 
+/*Week 6-7*/
+
+
+//variables 
+$form: 4px solid black;//holds this info
+$align: center;
+
+//nesting selectors
+#section_2 {
+  form {
+    color: navy;
+    background-color: none;
+    border: $form; //variables, uses info saved for the border
+    text-align: $align;//uses info saved for the text-align
+    opacity: 50% + 40%; //math example: adds the two %s to get 90%
+    margin: 3em * 1.5; //3em is now = to 4.5em
+    
+  }
+  input {
+    margin: 1em;
+    position: relative;
+    
+  }
+
+  label {
+    margin: .25em;
+    padding: 1em;
+     
+  }
+
+  #email {
+    margin-left: 3em;
+  }
+}
+
+//Nesting of selectors and properties.
+#section_2 {
+           #submit {
+
+              margin: {//doing this instead of margin-left, ect..
+                      left: 8em;
+                      top: .5em;
+                      bottom: .5em;
+              }
+              border: {
+                      style: outset;
+                      color: #28324B;
+              }
+
+                        &:hover { // adds hover to #submit 
+                          color: white;
+                          background-color: #28324B;
+                          border: {
+                              style: inset;
+                              color: white;
+                          } 
+                            
+                        }
+           } 
+}
+
+%headings-s2 { //used for @extend example  
+  color: #28324B;
+  text-align: center;
+}
+
+//nested media query 
+#section_2 {
+  legend {
+    @media (max-width:700px) {// hides the legend on small screens
+      display: none;;
+    }
+  }
+
+  h2 {
+    @extend %headings-s2; //@extend example applying styes to heading 
+  }
+}
+
+//mixin
+@mixin line { //holding these to be used when called  
+  border: {
+    style: dashed;
+    width: 6px;
+    color: #28324B;
+  }
+}
+
+#section_2 {
+  hr {
+    @include line; // include for mixin that is below, calls styles saved in mixin
+  }
+}
+
+//function, code executes when invoked 
+@function paddin() {
+  $padding1: 1em;
+  $padding2: 1.5em;
+  $add_em: $padding1 + $padding2;
+  @return $add_em;
+  
+}
+
+footer {
+  background-color: #28324B;
+  padding: paddin(); //function invoked 
+  color: white;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
 
 // Bootstrap Sass Imports
 @import "node_modules/bootstrap/scss/bootstrap";
