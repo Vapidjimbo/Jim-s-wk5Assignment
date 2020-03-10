@@ -56,27 +56,30 @@ $align: center;
 #section_2 {
            #submit {
 
-              margin: {//doing this instead of margin-left, ect..
-                      left: 8em;
-                      top: .5em;
-                      bottom: .5em;
-              }
-              border: {
-                      style: outset;
-                      color: #28324B;
-              }
+                    margin: {//doing this instead of margin-left, ect..
+                            left: 8em;
+                            top: .5em;
+                            bottom: .5em;
+                    }
+                    border: {
+                            style: outset;
+                            color: #28324B;
+                    }
 
-                        &:hover { // adds hover to #submit 
-                          color: white;
-                          background-color: #28324B;
-                          border: {
-                              style: inset;
-                              color: white;
-                          } 
+                              &:hover { // adds hover to #submit 
+                                      color: white;
+                                      background-color: #28324B;
+
+                                      border: {
+                                              style: inset;
+                                              color: white;
+                                      } 
                             
-                        }
+                              }
            } 
 }
+
+//test
 
 %headings-s2 { //used for @extend example  
   color: #28324B;
